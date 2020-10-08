@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
-const port = 5000
+const port = 3100
 const db = require('./queries')
 
 
@@ -13,7 +13,7 @@ app.use(
 )
 
 app.get('/', (request, response) => {
-    response.json({ info: 'Node.js, Express, and Postgres API' })
+    response.json({ info: 'Travel API. For more information: https://github.com/gsalibi/travel-information-api' })
 })
 
 app.get('/all', db.getCountries)
