@@ -10,7 +10,7 @@ const pool = new Pool({
 })
 
 const getCountries = (request, response) => {
-    pool.query('SELECT * FROM country', (error, results) => {
+    pool.query('SELECT * FROM table_test', (error, results) => {
         if (error) {
             throw error
         }
