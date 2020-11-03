@@ -33,6 +33,21 @@ const getCountries = (request, response) => {
                   }
                 row.vaccines = vaccines_array;
             }
+
+
+
+            culture_string = row.culture;
+            var culture_dict = {}
+            if (culture_string) {
+                culture_string = culture_string.replace(/(\r\n|\n|\r)/gm, ""); // remove linhas em branco
+                culture_array = culture_string.split("****")
+                culture_array = culture_array.filter(v=>v!=''); // remove elementos vazios
+                for (var i = 0; i < culture_array.length; i++) {
+                    culture_info = culture_array[i].split("++++")
+                    culture_dict[culture_info[0]] = culture_info[1]
+                  }
+                row.culture = culture_dict;
+            }
         }
         response.status(200).json(results.rows)
     })
