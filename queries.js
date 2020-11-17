@@ -53,6 +53,18 @@ const getCountries = (request, response) => {
     })
 }
 
+
+const getDate = (request, response) => {
+    pool.query('SELECT last_update FROM update', (error, results) => {
+        if (error) {
+            throw error
+        }
+        ''
+        response.status(200).send(results.rows[0].last_update)
+    })
+}
+
 module.exports = {
     getCountries,
+    getDate,
 }

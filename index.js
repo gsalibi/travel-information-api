@@ -18,6 +18,8 @@ app.get('/', (request, response) => {
 
 app.get('/all', db.getCountries)
 
+app.get('/update', db.getDate)
+
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)
 })
